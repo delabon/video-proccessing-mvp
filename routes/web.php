@@ -12,6 +12,10 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+Route::view('videos', 'videos')
+    ->middleware(['auth', 'verified'])
+    ->name('videos');
+
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
