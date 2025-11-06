@@ -5,7 +5,7 @@
         </div>
         <div class="flex items-center justify-center relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
             <p class="text-lg">
-                Visits the videos sections to see all your uploaded videos.
+                Visit the videos sections to see all your uploaded videos.
             </p>
         </div>
     </div>
