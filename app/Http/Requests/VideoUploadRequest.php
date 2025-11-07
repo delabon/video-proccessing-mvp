@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VideoUploadRequest extends FormRequest
+final class VideoUploadRequest extends FormRequest
 {
     private const int MAX_SIZE = 10240; // 10mb
     private const int MIN_SIZE = 1; // 1kb
@@ -28,7 +28,7 @@ class VideoUploadRequest extends FormRequest
             'video' => [
                 'required',
                 'file',
-                'mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4',
+                'mimetypes:video/mp4',
                 'min:' . self::MIN_SIZE,
                 'max:' . self::MAX_SIZE,
             ]

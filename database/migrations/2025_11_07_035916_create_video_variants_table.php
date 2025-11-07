@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use App\Models\Video;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,15 +12,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('videos', function (Blueprint $table) {
+        Schema::create('video_variants', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class)->index()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignIdFor(Video::class)->index()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('name');
+            $table->string('resolution'); // Enum
             $table->string('type', 50);
             $table->string('disk', 50);
             $table->string('path');
-            $table->string('status', 20); // Enum
-            $table->text('error')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('videos');
+        Schema::dropIfExists('video_variants');
     }
 };

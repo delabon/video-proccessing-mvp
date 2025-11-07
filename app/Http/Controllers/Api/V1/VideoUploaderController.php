@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Enums\VideoStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\VideoUploadRequest;
+use App\Jobs\ProcessVideo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -11,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 use Throwable;
 
-class VideoUploaderController extends Controller
+final class VideoUploaderController extends Controller
 {
     public function __invoke(VideoUploadRequest $request): JsonResponse
     {
@@ -46,9 +48,10 @@ class VideoUploaderController extends Controller
                     'type' => $file->getClientMimeType(),
                     'disk' => $disk,
                     'path' => $path,
+                    'status' => VideoStatus::Uploaded,
                 ]);
 
-            // TODO: start processing in queue
+            ProcessVideo::dispatch($video->id);
 
             DB::commit();
 
