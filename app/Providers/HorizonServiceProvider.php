@@ -28,7 +28,7 @@ class HorizonServiceProvider extends HorizonApplicationServiceProvider
     protected function gate(): void
     {
         Gate::define('viewHorizon', function ($user = null) {
-            return in_array($user->email, config('app.developers'), true);
+            return app()->isLocal() || in_array($user?->email, config('app.developers'), true);
         });
     }
 }
