@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Enums\VideoResolution;
 use App\Enums\VideoStatus;
+use App\Events\VideoProcessed;
 use App\Models\Video;
 use Exception;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -98,7 +99,7 @@ final class ProcessVideo implements ShouldQueue
             } catch (Throwable) {}
         }
 
-        // TODO: Notify user via email
+        event(new VideoProcessed($video));
     }
 
     private function getOriginalVideoDimensions(string $absolutePath): array
