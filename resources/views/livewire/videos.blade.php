@@ -50,8 +50,8 @@ new class extends Component {
                             @endif
                         </div>
                     </td>
-                    <td>{{ $video->created_at->format('j M, Y') }}</td>
-                    <td>{{ $video->updated_at->format('j M, Y') }}</td>
+                    <td>{{ $video->created_at->format('M j, Y') }}</td>
+                    <td>{{ $video->updated_at->format('M j, Y') }}</td>
                 </tr>
             @endforeach
             </tbody>
