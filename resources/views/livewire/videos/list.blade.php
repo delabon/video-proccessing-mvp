@@ -55,6 +55,8 @@ new class extends Component {
 
         Cache::forget('user_' . $user->id . '_videos_count');
 
+        $this->dispatch('re-count-videos');
+
         $this->js('alert("Your video has been deleted.")');
     }
 }; ?>

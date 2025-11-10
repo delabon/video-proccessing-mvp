@@ -17,7 +17,7 @@
                     <flux:navlist.item icon="play" :href="route('videos.index')" :current="request()->routeIs('videos')" wire:navigate>
                         <div class="flex items-center justify-between gap-3 flex-wrap">
                             {{ __('Videos') }}
-                            <span class="border rounded-full p-0.5 text-xs w-[22px] h-[22px] inline-flex items-center justify-center">{{ app(\App\Repositories\VideoRepository::class)->userVideosCount(auth()->user()) }}</span>
+                            <livewire:videos.video-count/>
                         </div>
                     </flux:navlist.item>
                 </flux:navlist.group>
