@@ -97,5 +97,3 @@ The app will be available at http://localhost when Sail is running.
 - Add more robust retry, monitoring and failure handling for long-running transcodes.
 
 ---
-
-Made by Sabri with love.
