@@ -1,4 +1,4 @@
-# ScreenPal — Video Processing MVP
+# Video Processing MVP
 
 A minimal Laravel app that accepts video uploads and generates lower-resolution variants (e.g., 4K -> 2K, 1080p, 720p, 480p).
 
@@ -29,8 +29,8 @@ These instructions assume you're on a Linux machine with composer installed and 
 1. Clone the repository
 
 ```shell
-git clone git@github.com:delabon/screenpal-video-proccessing-mvp.git
-cd screenpal-video-proccessing-mvp
+git clone git@github.com:delabon/video-proccessing-mvp.git
+cd video-proccessing-mvp
 ```
 
 2. Install dependencies
